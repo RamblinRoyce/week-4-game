@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+  	<title>simple crystal game</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/spacelab/bootstrap.min.css" rel="stylesheet" integrity="sha384-PpvUDg6Tgcp6nh5chOo8teebMjoOXeU/PVfbPIRL4dymXdX1LuGS8ZpBUUqjDZ0d" crossorigin="anonymous">
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <style type="text/css">
+  	/*
+  		we threw in some styling to make the picture fit on the page better
+	*/
+    .crystalImage {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>CrystalsCollector!</h1>
+
+<p> </p>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+<p>
+	<p>Random Number to Match</p>
+	<span id="number"></span>
+</p>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+
+		<!-- This span called winCounter is where we'll be dumping the number of wins. Pay attention to the id called ****winCounter***. We'll be referencing this in the Javascrit. -->
+		<strong>Wins: </strong> <span id="winCounter">0</span>
+	</div>
+</div>
+
+<!-- Fifth Panel: Holds the number of Losses. -->
+<div class="panel panel-default">
+	<div class="panel-body">
+
+		<!-- This span called winCounter is where we'll be dumping the number of wins. Pay attention to the id called ****winCounter***. We'll be referencing this in the Javascrit. -->
+		<strong>Losses: </strong> <span id="lossCounter">0</span>
+	</div>
+</div>
+
+
+<p><span id="yourNumber"></span></p>
+
+<div id="crystals">
+</div>
+
+<!-- we added jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+  $( document ).ready(function() {
+
+    var numberToGuess = 53;
+
+    var counter = 0;
+
+    var numbers = [10, 5, 3, 7];
+
+    $('#number').text(numberToGuess);
+
+
+
+    
+
+      var imageCrystal_1 = $('<img>');     
+      imageCrystal_1.attr('data-num', numbers[i]);
+      imageCrystal_1.attr('src', 'assets/images/rock-crystal-gemstone.jpg');
+      imageCrystal_1.attr('alt', 'crystals');
+      imageCrystal_1.addClass('crystalImage');
+      $('#crystals').append(imageCrystal_1);
+    
+    
+    $('.crystalImage').on('click', function(){
+      counter = counter + parseInt($(this).data('num'));
+      
+      $('#yourNumber').text(counter);
+
+      if (counter == numberToGuess){
+        alert('You won!!!!');
+      }else if( counter > numberToGuess){
+        alert('You lost!');
+      }
+    });
+
+  });
+</script>
+</body>
+</html>

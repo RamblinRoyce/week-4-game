@@ -74,10 +74,9 @@
     var wins = 0;
     var losses = 0;
   
-    //function resetNumToGuess() {
+    function startGame() {
 	    var numberToGuess = Math.floor(Math.random() * 102) + 19;
 	    $('#number').text(numberToGuess);
-	//}
 
 	    var imageCrysNum_1 = Math.floor(Math.random() * 12) + 1;
 	    var imageCrysNum_2 = Math.floor(Math.random() * 12) + 1;
@@ -86,33 +85,37 @@
 
 		var imageCrystal_1 = $('<img>');     
 		imageCrystal_1.attr('data-num', imageCrysNum_1);
-		imageCrystal_1.attr('src', 'assets/images/rock-crystal-gemstone.jpg');
+		imageCrystal_1.attr('src', '../../assets/images/rock-crystal-gemstone.jpg');
 		imageCrystal_1.attr('alt', 'crystals');
 		imageCrystal_1.addClass('crystalImage');
 		$('#crystals').append(imageCrystal_1);
 
 		var imageCrystal_2 = $('<img>');     
 		imageCrystal_2.attr('data-num', imageCrysNum_2);
-		imageCrystal_2.attr('src', 'assets/images/30956_large_Superman_Memory_Crystals_FP_Wide.png');
+		imageCrystal_2.attr('src', '../../assets/images/30956_large_Superman_Memory_Crystals_FP_Wide.png');
 		imageCrystal_2.attr('alt', 'crystals');
 		imageCrystal_2.addClass('crystalImage');
 		$('#crystals').append(imageCrystal_2);
 
 		var imageCrystal_3 = $('<img>');     
 		imageCrystal_3.attr('data-num', imageCrysNum_3);
-		imageCrystal_3.attr('src', 'assets/images/2bf8885.jpg');
+		imageCrystal_3.attr('src', '../../assets/images/2bf8885.jpg');
 		imageCrystal_3.attr('alt', 'crystals');
 		imageCrystal_3.addClass('crystalImage');
 		$('#crystals').append(imageCrystal_3);
 
 		var imageCrystal_4 = $('<img>');     
 		imageCrystal_4.attr('data-num', imageCrysNum_4);
-		imageCrystal_4.attr('src', 'assets/images/07_IMG_1805598.jpg');
+		imageCrystal_4.attr('src', '../../assets/images/07_IMG_1805598.jpg');
 		imageCrystal_4.attr('alt', 'crystals');
 		imageCrystal_4.addClass('crystalImage');
 		$('#crystals').append(imageCrystal_4);
+	}
+
+
+    // Starts the Game by running the startGame() function
+	startGame();
 	
-    
     $('.crystalImage').on('click', function(){
       counter = counter + parseInt($(this).data('num'));
       
@@ -123,27 +126,17 @@
         wins++;
         $('#winCounter').html(wins);
         counter = 0;
-        $('#yourNumber').text(counter);
-        //var numberToGuess = Math.floor(Math.random() * 102) + 19;
-	    //$('#number').text(numberToGuess);
-        // resetNumToGuess();
-        //startGame(); // restart the game
+        startGame(); // restart the game
       }else if (counter > numberToGuess){
       	alert('You lost!');
         losses++;
         $('#lossCounter').html(losses);
         counter = 0;
-        $('#yourNumber').text(counter);
-        //var numberToGuess = Math.floor(Math.random() * 102) + 19;
-	    //$('#number').text(numberToGuess);
-        // resetNumToGuess();
-        //startGame(); // restart the game
+        startGame(); // restart the game
       }
     });
 
-// Starts the Game by running the startGame() function
-	// resetNumToGuess();
-	
+
   });
 </script>
 </body>
